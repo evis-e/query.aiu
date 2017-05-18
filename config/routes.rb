@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/users/new'
   get '/posts/new'
 
+  get '/posts/:id(.:format)', to: 'posts#show'
+
   get '/signup',  to: 'users#new'
 
   resources :users
