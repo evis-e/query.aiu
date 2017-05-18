@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/users/new'
   get '/posts/new'
+  get '/answers/new'
 
   get '/posts/:id(.:format)', to: 'posts#show'
 
@@ -19,4 +20,5 @@ Rails.application.routes.draw do
 
   resources :users
   resources :posts, only: [:create, :destroy]
+  resources :answers, only: [:create, :destroy]
 end

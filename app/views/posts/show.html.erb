@@ -8,7 +8,12 @@
         <%= @post.content %>
       </p>
     </section>
+    <section class="micropost_form">
+      <%= render 'shared/answer_form', post_id: @post.id %>
+    </section>
   </aside>
   <div class="col-md-8">
+    <h3>Answers</h3>
+    <%= render 'shared/answer_feed' %>
   </div>
 </div>

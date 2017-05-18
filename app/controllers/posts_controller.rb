@@ -17,8 +17,10 @@ class PostsController < ApplicationController
   end
 
   def show
+    @answer = Answer.new
     @post = Post.find(params[:id])
-    # @answers = @post.answers.paginate(page: params[:page])
+
+    @post_answers = @post.post_answers.paginate(page: params[:page])
   end
 
   def destroy
