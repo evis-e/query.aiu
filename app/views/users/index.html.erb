@@ -1,0 +1,6 @@
+<% if @users.any? %>
+  <h3>Users (<%= @users.count %>)</h3>
+  <ol>
+    <%= render @users %>
+  </ol>
+<% end %>
