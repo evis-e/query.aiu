@@ -1,3 +1,9 @@
-<li id="user-<%= user.id %>">
-    <%= user.username %>
-</li>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1><%= user.username %></h1>
+      <span><%= link_to "view profile", user %></span>
+      <span><%= pluralize(user.posts.count, "post") %></span>
+    </section>
+  </aside>
+</div>
