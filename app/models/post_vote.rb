@@ -1,0 +1,2 @@
+class PostVote < ApplicationRecord
+end

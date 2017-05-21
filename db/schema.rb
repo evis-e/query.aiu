@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518123744) do
+ActiveRecord::Schema.define(version: 20170521062728) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20170518123744) do
     t.index ["post_id"], name: "index_answers_on_post_id"
     t.index ["user_id", "created_at"], name: "index_answers_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "post_votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "vote"
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id", "created_at"], name: "index_post_votes_on_post_id_and_created_at"
+    t.index ["post_id"], name: "index_post_votes_on_post_id"
+    t.index ["user_id", "created_at"], name: "index_post_votes_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_post_votes_on_user_id"
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,5 +56,7 @@ ActiveRecord::Schema.define(version: 20170518123744) do
 
   add_foreign_key "answers", "posts"
   add_foreign_key "answers", "users"
+  add_foreign_key "post_votes", "posts"
+  add_foreign_key "post_votes", "users"
   add_foreign_key "posts", "users"
 end
