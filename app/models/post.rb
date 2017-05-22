@@ -9,4 +9,8 @@ class Post < ApplicationRecord
   def post_answers
     Answer.where("post_id = ?", id)
   end
+
+  def post_votes_count
+    PostVote.where("post_id = ?", id).sum(:vote)
+  end
 end

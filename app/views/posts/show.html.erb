@@ -7,6 +7,12 @@
       <p>
         <%= @post.content %>
       </p>
+      <p>
+        Votes: <%= @post.post_votes_count %>
+      </p>
+      <section class="micropost_form">
+        <%= render 'shared/post_vote_form', post_id: @post.id %>
+      </section>
     </section>
     <section class="micropost_form">
       <%= render 'shared/answer_form', post_id: @post.id %>

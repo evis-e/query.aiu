@@ -1,0 +1,5 @@
+<%= form_for PostVote.new do |f| %>
+  <div><%= f.hidden_field :post_id, :value => post_id %></div>
+  <div><%= f.hidden_field :vote, :value => 1 %></div>
+  <%= f.submit "Upvote", class: "btn btn-primary" %>
+<% end %>
