@@ -7,9 +7,10 @@ class AnswersController < ApplicationController
 
   def create
     @answer = current_user.answers.build(answer_params)
+    @post = Post.find(answer_params[:post_id])
     if @answer.save
       flash[:success] = "Answer created!"
-      redirect_to root_url
+      redirect_to @post
     else
       @post_answers = []
       render 'static_pages/home'

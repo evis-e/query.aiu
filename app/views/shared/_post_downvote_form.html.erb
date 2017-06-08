@@ -1,0 +1,9 @@
+<%= form_for PostVote.new do |f| %>
+  <div><%= f.hidden_field :post_id, :value => post_id %></div>
+  <div><%= f.hidden_field :vote, :value => -1 %></div>
+  <% if is_voted %>
+    <%= f.submit "Downvote", class: "btn btn-primary", disabled: true %>
+  <% else %>
+    <%= f.submit "Downvote", class: "btn btn-primary" %>
+  <% end %>
+<% end %>

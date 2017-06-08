@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     @post_answers = @post.post_answers.paginate(page: params[:page])
+    @is_post_voted = @post.post_votes.exists?(user_id: current_user.id)
   end
 
   def destroy

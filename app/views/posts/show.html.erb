@@ -11,7 +11,10 @@
         Votes: <%= @post.post_votes_count %>
       </p>
       <section class="micropost_form">
-        <%= render 'shared/post_vote_form', post_id: @post.id %>
+        <%= render 'shared/post_upvote_form', post_id: @post.id,
+          is_voted: @is_post_voted %>
+        <%= render 'shared/post_downvote_form', post_id: @post.id, 
+          is_voted: @is_post_voted %>
       </section>
     </section>
     <section class="micropost_form">
