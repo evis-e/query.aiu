@@ -18,4 +18,12 @@
       <%= will_paginate @posts %>
     <% end %>
   </div>
+  <div class="col-md-8">
+    <% if @user.answers.any? %>
+      <h3>Answers (<%= @user.answers.count %>)</h3>
+      <ol class="microposts">
+        <%= render @answers %>
+      </ol>
+    <% end %>
+  </div>
 </div>
